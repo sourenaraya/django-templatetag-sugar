@@ -1,7 +1,10 @@
 from collections import deque
 from copy import copy
 
-from django.db.models.loading import cache
+try:
+    from django.db.models.loading import cache
+except ImportError:
+    from django.apps import apps as cache
 from django.template import TemplateSyntaxError
 
 from templatetag_sugar.node import SugarNode
